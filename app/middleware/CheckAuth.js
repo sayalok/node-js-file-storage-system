@@ -1,8 +1,8 @@
 require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
-const { checkIfTokenExist } = require('./../repository/Authentication/personal_access_token')
-const server_response = require('./../util/response')
+const { checkIfTokenExist } = require(__root_path+'app/repository/Authentication/personal_access_token')
+const server_response = require(__root_path+'app/util/response')
 
 
 module.exports = (req, res, next) => {
@@ -16,12 +16,9 @@ module.exports = (req, res, next) => {
                     next();
                 } else {
                     server_response(res, 401, 'Failed', 'Unauthrized')
-
                 }
             })
-            .catch(error => {
-                server_response(res, 401, 'Failed', 'Unauthrized')
-            })
+            .catch(error => server_response(res, 401, 'Failed', 'Unauthrized'))
 
     } catch (error) {
         server_response(res, 401, 'Failed', 'Unauthrized')

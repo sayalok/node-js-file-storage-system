@@ -1,4 +1,4 @@
-const { User } = require("../../models");
+const { User } = require(__root_path+"app/models");
 
 const getSingleUser = (email) => {
 	try {

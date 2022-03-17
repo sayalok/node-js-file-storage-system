@@ -1,5 +1,5 @@
 'use strict';
-const { generateHashPassword } = require('./../../app/library/jwt')
+
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.bulkInsert('users', [{

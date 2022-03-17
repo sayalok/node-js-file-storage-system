@@ -11,9 +11,6 @@ const server_response = require(__root_path+'app/util/response')
 
 
 /**
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
  * @returns {Object}
  */
 exports.user_login = (req, res, next) => {

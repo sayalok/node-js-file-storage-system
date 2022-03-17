@@ -1,4 +1,4 @@
-const server_response = require('./../util/response')
+const server_response = require(__root_path+'app/util/response')
 
 
 module.exports = (req, res, next, schema) => {
@@ -13,8 +13,6 @@ module.exports = (req, res, next, schema) => {
         error.details.map(err => errorArr.push({[err.context.label]: err.message.replace(/['"]+/g, '')}))
         server_response(res, 422, 'Failed', errorArr)
     } else {
-        // req.body = value;
         next();
     }
-
 }

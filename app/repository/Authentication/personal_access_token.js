@@ -1,4 +1,4 @@
-const { PersonalAccessToken } = require('./../../models');
+const { PersonalAccessToken } = require(__root_path+"app/models");
 
 /**
  * 

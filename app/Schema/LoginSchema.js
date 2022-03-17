@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const validatorRequestHandler = require('./../../app/middleware/ValidatorRequestHandler');
+const validatorRequestHandler = require(__root_path+'app/middleware/ValidatorRequestHandler');
 
 
 const LoginSchema = (req, res, next) => {
