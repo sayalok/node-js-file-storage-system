@@ -14,38 +14,16 @@ const generateToken = (user) => {
 }
 
 const generateHashPassword = (pass) => {
-    // console.log(pass);
-    // return bcrypt.hash(pass, 10, (err, hash) => {
-        // if (err) {
-        //     console.log(err);
-        //     return '123456'
-        // } else {
-    //         // console.log(hash);
-    //         return hash;
-    //     // }
-    // })
-    // return pass;
     const salt = bcrypt.genSalt(10);
-   return salt.then((res)=>{
-        const password = bcrypt.hash(pass,res);
-       return password.then((response)=>{
-           return response;
-        }).catch((error)=>{
-           return false;
-        })
-    })
-    
+	return salt.then((res)=>{
+			const password = bcrypt.hash(pass,res);
+		return password.then((response)=>{
+			return response;
+			}).catch((error)=>{
+			return false;
+			})
+		})
 }
-
-// // else {
-// bcrypt.hash('123456', 10, (err, hash) => {
-//     if (err) {
-//         return res.status(500).json({error: err})
-//     } else {
-//         console.log(hash);
-//     }
-// })
-// // }
 
 module.exports = {
     generateToken,

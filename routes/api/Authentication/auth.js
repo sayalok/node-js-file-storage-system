@@ -1,13 +1,13 @@
 const express = require('express');
 
 // Schema
-const LoginSchema = require('./../../../app/Schema/LoginSchema');
+const LoginSchema = require(__root_path+'app/Schema/LoginSchema');
 
 // Middleware
-const isAuthenticated = require('./../../../app/middleware/CheckAuth');
+const isAuthenticated = require(__root_path+'app/middleware/CheckAuth');
 
 // Controller
-const authController = require('./../../../app/controllers/api/authentication/user_auth')
+const authController = require(__root_path+'app/controllers/api/authentication/user_auth')
 
 const router = express.Router();
 

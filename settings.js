@@ -3,13 +3,12 @@ require('./config/database') // Init Database
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const flash = require('connect-flash');
 const morgan = require('morgan'); // http requset logger
 const { errorlog } = require('./app/util/logger') // System log
 
-global.__demo_data_dir = path.join(__dirname, 'public/xl_file/')
+global.__root_path = path.join(__dirname, '/')
 
 // global variabel
 global.__logger = errorlog
@@ -26,20 +25,6 @@ app.use(session({
 	saveUninitialized: true
 }));
 
-// Init Template engine and register view folder
-app.set('views', path.join(__dirname, 'views/'));
-
-app.use(expressLayouts)
-    // set the layout
-app.set('layout', './layouts/base')
-app.set('view engine', 'ejs');
-// enable css and js 
-app.set('layout extractScripts', true)
-app.set('layout extractStyles', true)
-
-
-
-app.use('assets', express.static('./public/assets')) // assets/css/index.css
 app.use('storage', express.static('./public/storage')) // /storage/image/filename
 
 // parse requests of content-type - application/json

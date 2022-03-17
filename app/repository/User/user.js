@@ -1,6 +1,6 @@
 const { User, UserDetails, UserMealPlan, BlockCategory, MealPlan, Blocks, WeekDay, MealTypeCategory, user_goal, goal_list  } = require('../../models');
 const { generateHashPassword } = require("./../../library/jwt");
-const { mailConfig } = require("./../../library/mail");
+// const { mailConfig } = require("./../../library/mail");
 
 const getSingleUser = (email, role_id=3) => {
     try {
