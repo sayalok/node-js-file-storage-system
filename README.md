@@ -3,8 +3,8 @@
 to run this project please go through the following instruction
 
 <ul>
-	<li> git clone https://github.com/iota-it-tech/bbn-backend.git</li>
-	<li> cd bbn-backend</li>
+	<li> git clone https://github.com/sayalok/node-js-file-storage-system</li>
+	<li> cd node-js-file-storage-system</li>
 	<li> then create .env file from env and set proper crdentials</li>
 	<li> run `npm install` to install all necessary package </li>
 	<li> Then run npm dev</li>
