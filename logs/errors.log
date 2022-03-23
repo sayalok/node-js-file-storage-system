@@ -148,3 +148,13 @@
   level: 'error',
   timestamp: '2022-02-24 18:28:53'
 }
+{
+  message: 'Error: err',
+  level: 'error',
+  timestamp: '2022-03-24 00:39:06'
+}
+{
+  message: 'Error: err',
+  level: 'error',
+  timestamp: '2022-03-24 00:40:16'
+}

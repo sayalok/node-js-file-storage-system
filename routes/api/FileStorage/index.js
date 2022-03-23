@@ -1,5 +1,6 @@
 const express = require('express');
 
+const fileUpload = require(__root_path+"app/util/file_handler");
 
 // Middleware
 const isAuthenticated = require(__root_path+'app/middleware/CheckAuth');
@@ -9,6 +10,8 @@ const fileStorageController = require(__root_path+'app/controllers/api/file_stor
 
 const router = express.Router();
 
-router.post("/upload_files",  fileUpload("image", "input_user_photo"), isAuthenticated, fileStorageController.upload_file);
+router.post("/files",  fileUpload("image", "input_user_photo"), isAuthenticated, fileStorageController.upload_file);
+router.get("/files/:publicKey",  isAuthenticated, fileStorageController.get_file);
+router.delete("/files/:privateKey",   isAuthenticated, fileStorageController.delete_file);
 
 module.exports = router
