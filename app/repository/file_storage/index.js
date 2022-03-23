@@ -1,4 +1,8 @@
-const uploadFile = () => {
+const { public_file_url } = require(__root_path+"app/util/helper");
+
+
+const uploadFile = (file) => {
+	let path = public_file_url(file.filename, "image");
 	return true;
 }
 

@@ -1,3 +1,5 @@
 .env
 .sequelizerc
 /node_modules
+/public/storage/*
+logs/errors.log
