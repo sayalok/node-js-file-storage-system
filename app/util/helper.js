@@ -1,5 +1,8 @@
+require('dotenv').config()
+
 const public_file_url = (fileName, folderName) => {
-    return 'storage/'+folderName+'/'+fileName
+	const path = process.env.FOLDER  || 'folder'
+    return path+'/'+folderName+'/'+fileName
 }
 
 module.exports = {

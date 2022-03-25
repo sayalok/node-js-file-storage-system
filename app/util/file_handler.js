@@ -1,16 +1,23 @@
 const multer = require('multer')
 const fs = require('fs')
+require('dotenv').config()
 
 
 module.exports = (folderName, fileName) => {
+	console.log('kira vai------------');
     const storage = multer.diskStorage({
         destination: function(req, file, cb) {
-            let path = './public/storage/'
 
-            fs.mkdir(path + folderName, { recursive: true }, (err) => {
+            // let path = './public/storage/'
+
+			const path = process.env.FOLDER  || 'storage'
+
+            fs.mkdir(path + '/' +folderName, { recursive: true }, (err) => {
+				console.log(err);
                 if (!err) {
-                    cb(null, path + folderName)
+                    cb(null, path + '/' + folderName)
                 } else {
+					console.log('on herere');
                     cb(null, false)
                 };
             });

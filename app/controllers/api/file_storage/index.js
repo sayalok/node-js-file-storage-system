@@ -28,7 +28,7 @@ exports.get_file = (req, res, next) => {
 	try {
 		return getFileByPubKey(req.params.publickey)
 			.then(response => {
-				res.sendFile(__root_path+'public/'+response.dataValues.file_name);
+				res.sendFile(__root_path+response.dataValues.file_name);
 			})
 			.catch(error => server_response(res, 500, 'Failed', 'Something went wrong', { error: error }))
 	} catch (error) {
