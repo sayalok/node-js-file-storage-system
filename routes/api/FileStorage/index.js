@@ -11,7 +11,7 @@ const fileStorageController = require(__root_path+'app/controllers/api/file_stor
 const router = express.Router();
 
 router.post("/files",  fileUpload("image", "input_photo"), isAuthenticated, fileStorageController.upload_file);
-router.get("/files/:publicKey",  isAuthenticated, fileStorageController.get_file);
-router.delete("/files/:privateKey",   isAuthenticated, fileStorageController.delete_file);
+router.get("/files/:publickey",  isAuthenticated, fileStorageController.get_file);
+router.delete("/files/:privatekey",   isAuthenticated, fileStorageController.delete_file);
 
 module.exports = router

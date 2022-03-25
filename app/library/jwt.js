@@ -19,17 +19,6 @@ const generateToken = (user) => {
     })
 }
 
-const generateHashPassword = (pass) => {
-    const salt = bcrypt.genSalt(10);
-	return salt.then((res)=>{
-		const password = bcrypt.hash(pass,res);
-		return password
-			.then(response => response)
-			.catch( error => false)
-		})
-}
-
 module.exports = {
-    generateToken,
-    generateHashPassword
+    generateToken
 }

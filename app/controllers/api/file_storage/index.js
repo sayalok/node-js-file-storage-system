@@ -25,7 +25,15 @@ exports.upload_file = (req, res, next) => {
 }
 
 exports.get_file = (req, res, next) => {
-	server_response(res, 500, 'Failed', 'Something went wrong', { error: 'err' })
+	try {
+		return getFileByPubKey(req.params.publickey)
+			.then(response => {
+				res.sendFile(__root_path+'public/'+response.dataValues.file_name);
+			})
+			.catch(error => server_response(res, 500, 'Failed', 'Something went wrong', { error: error }))
+	} catch (error) {
+		server_response(res, 500, 'Failed', 'Something went wrong', { error: 'err' })
+	}
 }
 
 exports.delete_file = (req, res, next) => {

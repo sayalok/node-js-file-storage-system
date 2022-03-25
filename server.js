@@ -1,5 +1,6 @@
 /*  --------------- Package List -------------------------- */
 const express = require('express');
+require('dotenv').config()
 
 
 /*  --------------- Custom Modules -------------------------- */
@@ -10,7 +11,7 @@ app.use(require('express-status-monitor')())
 
 app.use(setting) // Init Setting
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
 })
