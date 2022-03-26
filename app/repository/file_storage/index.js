@@ -1,13 +1,13 @@
 const { file_storage  } = require(__root_path+'app/models');
-const {	privateKey, publicKey} = require(__root_path+'app/util/key_generator')
+const {	randmonSting } = require(__root_path+'app/util/key_generator')
 
 const { public_file_url } = require(__root_path+"app/util/helper");
 
 
 const uploadFile = (user_id,file) => {
 	try {
-		let pub_key = publicKey.toString('hex')
-		let pri_key = privateKey.toString('hex')
+		let pub_key = randmonSting()
+		let pri_key = randmonSting()
 
 		if (pub_key != ' ' && pri_key != ' ') {
 			return file_storage.create({
@@ -27,7 +27,6 @@ const uploadFile = (user_id,file) => {
 
 const getFileByPubKey = (pub_key) => {
 	try {
-       
 		let options = {
 			where: {pub_key}
 		};
@@ -37,8 +36,13 @@ const getFileByPubKey = (pub_key) => {
     }
 }
 
-const deleteFileByPrivateKey = (privateKey) => {
-	return true;
+const deleteFileByPrivateKey = (private_key) => {
+	try {
+		return file_storage.destroy({where: {private_key}});
+    } catch (error) {
+		console.log(error);
+        return false;
+    }
 }
 
 module.exports = {

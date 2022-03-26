@@ -37,5 +37,18 @@ exports.get_file = (req, res, next) => {
 }
 
 exports.delete_file = (req, res, next) => {
-	server_response(res, 500, 'Failed', 'Something went wrong', { error: 'err' })
+	try {
+		return deleteFileByPrivateKey(req.params.privatekey)
+			.then(response => {
+				if (response) {
+					server_response(res, 200, 'Success!', 'Successfully!')
+				}else{
+					server_response(res, 500, 'Failed', 'Something went wrong')
+				}
+			})
+			.catch(error => server_response(res, 500, 'Failed', 'Something went wrong', { error: error }))
+	} catch (error) {
+		// console.log(error);
+		server_response(res, 500, 'Failed', 'Something went wrong', { error: 'err' })		
+	}
 }
